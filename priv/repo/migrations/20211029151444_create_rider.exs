@@ -11,5 +11,7 @@ defmodule LaundryBasket.Repo.Migrations.CreateRider do
       add :vehicle, :string
       add :user_id, references(:users)
     end
+
+    create unique_constraint(:riders, [:user_id])
   end
 end
