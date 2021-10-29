@@ -10,8 +10,8 @@ defmodule LaundryBasket.Accounts.Rider do
     field :status, :string
     field :vehicle, :string
     belongs_to :user, LaundryBasket.Accounts.User
-    has_many :pickup_rider, LaundryBasket.Order, foreign_key: :pickup_id
-    has_many :delivery_rider, LaundryBasket.Order, foreign_key: :delivery_id
+    has_many :pickup_rider, LaundryBasket.Orders.Order, foreign_key: :pickup_id
+    has_many :delivery_rider, LaundryBasket.Orders.Order, foreign_key: :delivery_id
 
     timestamps()
   end

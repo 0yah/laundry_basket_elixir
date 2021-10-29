@@ -8,7 +8,7 @@ defmodule LaundryBasket.Accounts.User do
     field :second_name, :string
     field :email, :string
     field :phone, :string
-    has_many :orders, LaundryBasket.Order
+    has_many :orders, LaundryBasket.Orders.Order
     has_one :rider, LaundryBasket.Accounts.Rider
 
 

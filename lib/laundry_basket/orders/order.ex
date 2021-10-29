@@ -1,4 +1,4 @@
-defmodule LaundryBasket.Order do
+defmodule LaundryBasket.Orders.Order do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -11,6 +11,7 @@ defmodule LaundryBasket.Order do
     belongs_to :pickup_rider, LaundryBasket.Accounts.Rider, foreign_key: :pickup_id
     belongs_to :delivery_rider, LaundryBasket.Accounts.Rider, foreign_key: :delivery_id
     belongs_to :location, LaundaryBaskey.Location
+    has_many :details, LaundryBasket.Orders.Detail
 
     timestamps()
   end
