@@ -9,9 +9,9 @@ defmodule LaundryBasket.Repo.Migrations.CreateRider do
     create table(:riders) do
       add :status, :string
       add :vehicle, :string
-      add :user, references(:users)
-    end
+      add :user_id, references(:users)
 
-    
+      timestamps()
+    end
   end
 end

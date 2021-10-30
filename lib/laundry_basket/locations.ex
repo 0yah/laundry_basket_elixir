@@ -1,4 +1,4 @@
-defmodule LaundryBaskey.Location do
+defmodule LaundryBasket.Location do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -8,7 +8,7 @@ defmodule LaundryBaskey.Location do
     field :apt, :string
     field :longitude, :float
     field :latitude, :float
-    has_many :orders, LaundryBasket.Order
+    has_many :orders, LaundryBasket.Orders.Order
 
     timestamps()
   end
