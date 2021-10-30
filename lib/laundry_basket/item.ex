@@ -6,7 +6,7 @@ defmodule LaundaryBaskey.Item do
     field :name, :string
     field :price, :float
     field :image_link, :string
-    has_one :detail, LaundryBasket.Orders.Detail
+    has_many :detail, LaundryBasket.Orders.Detail
 
     timestamps()
   end

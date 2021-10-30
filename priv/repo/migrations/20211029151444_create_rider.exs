@@ -9,9 +9,9 @@ defmodule LaundryBasket.Repo.Migrations.CreateRider do
     create table(:riders) do
       add :status, :string
       add :vehicle, :string
-      add :user_id, references(:users)
+      add :user, references(:users)
     end
 
-    create unique_constraint(:riders, [:user_id])
+    
   end
 end
