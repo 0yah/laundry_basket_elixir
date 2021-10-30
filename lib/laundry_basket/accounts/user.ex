@@ -11,7 +11,6 @@ defmodule LaundryBasket.Accounts.User do
     has_many :orders, LaundryBasket.Orders.Order
     has_one :rider, LaundryBasket.Accounts.Rider
 
-
     timestamps()
   end
 
