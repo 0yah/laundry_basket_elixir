@@ -10,7 +10,7 @@ defmodule LaundryBasket.Orders.Order do
     belongs_to :customer, LaundryBasket.Accounts.User
     belongs_to :pickup_rider, LaundryBasket.Accounts.Rider, foreign_key: :pickup_rider_id
     belongs_to :delivery_rider, LaundryBasket.Accounts.Rider, foreign_key: :delivery_rider_id
-    belongs_to :location, LaundryBasket.Location
+    belongs_to :location, LaundryBasket.Locations.Location
     has_many :details, LaundryBasket.Orders.Detail
 
     timestamps()

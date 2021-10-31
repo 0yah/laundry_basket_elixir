@@ -9,7 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-alias LaundryBasket.{Repo, Accounts.User, Accounts.Rider, Orders.Order}
+alias LaundryBasket.{Repo, Accounts.User, Accounts.Rider, Orders.Order, Items.Item}
 
 user_one = %User{first_name: "sd", second_name: "ds", email: "as@dk.com", phone: "2332233232"}
 user_one = Repo.insert! user_one
@@ -28,7 +28,8 @@ order_one = %Order{
   customer: user_one
 }
 
-
-
 order_one = Repo.insert!(order_one)
 
+item_one = %{name: "Duvet", price: 10.0, image_link: "image.jpg"}
+item_changeset = Item.changeset(%Item{}, item_one)
+item_one = Repo.insert!(item_one)

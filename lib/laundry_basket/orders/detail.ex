@@ -5,7 +5,7 @@ defmodule LaundryBasket.Orders.Detail do
 
   schema "details" do
     belongs_to :order, LaundryBasket.Orders.Order
-    belongs_to :item, LaundaryBaskey.Item
+    belongs_to :item, LaundryBasket.Items.Item
     field :quantity, :integer
 
     timestamps()
