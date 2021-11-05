@@ -1,0 +1,31 @@
+<h3>Log into your account</h3>
+
+
+<%= form_for @changeset, Routes.user_path(@conn, :sign_in), fn f ->%>
+
+ <%= if @changeset.action do %>
+
+Oops, something went wrong! Please check the errors below.
+<% end %> 
+
+
+  <div class="form-group">
+    <label>Email</label>
+    <%= email_input f, :email, class: "form-control" %>
+    <%= error_tag f, :email %> 
+  </div>
+
+ <div class="form-group">
+    <label>Password</label>
+    <%= password_input f, :password, class: "form-control" %>
+    <%= error_tag f, :password %> 
+  </div>
+
+
+
+  <div class="form-group">
+    <%= submit "Login", class: "btn btn-primary" %>
+    <%= link("Register", to: Routes.user_path(@conn, :new), class: "btn btn-success pull-right") %>
+  </div>
+
+<% end %>

@@ -8,6 +8,7 @@ defmodule LaundryBasketWeb.Router do
     plug :put_root_layout, {LaundryBasketWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug LaundryBasketWeb.Auth
   end
 
   pipeline :api do
@@ -18,6 +19,11 @@ defmodule LaundryBasketWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/register", UserController, :new
+    post "/register", UserController, :create
+    get "/login", UserController, :login
+    post "/login", UserController, :sign_in
+
   end
 
   # Other scopes may use custom stacks.
@@ -38,6 +44,7 @@ defmodule LaundryBasketWeb.Router do
     scope "/" do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: LaundryBasketWeb.Telemetry
+
     end
   end
 

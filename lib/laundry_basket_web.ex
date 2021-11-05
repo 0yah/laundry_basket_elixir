@@ -24,6 +24,7 @@ defmodule LaundryBasketWeb do
       import Plug.Conn
       import LaundryBasketWeb.Gettext
       alias LaundryBasketWeb.Router.Helpers, as: Routes
+      alias LaundryBasket.Accounts.User
     end
   end
 

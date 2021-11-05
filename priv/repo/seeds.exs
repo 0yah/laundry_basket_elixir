@@ -32,4 +32,11 @@ order_one = Repo.insert!(order_one)
 
 item_one = %{name: "Duvet", price: 10.0, image_link: "image.jpg"}
 item_changeset = Item.changeset(%Item{}, item_one)
-item_one = Repo.insert!(item_one)
+
+Repo.insert!(item_one) do
+
+  {:ok, item_one} ->
+    item_one
+  {:error, changeset} ->
+    changeset
+end

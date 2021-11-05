@@ -1,0 +1,52 @@
+<h3>Create your account</h3>
+
+<%= form_for @changeset, Routes.user_path(@conn, :create), fn f ->%>
+ <%= if @changeset.action do %>
+
+Oops, something went wrong! Please check the errors below.
+<% end %> 
+
+ <div class="form-group">
+    <label>First Name</label>
+    <%= text_input f, :first_name, class: "form-control" %>
+    <%= error_tag f, :first_name %> 
+  </div>
+
+   <div class="form-group">
+    <label>Second Name</label>
+    <%= text_input f, :second_name, class: "form-control" %>
+    <%= error_tag f, :second_name %> 
+  </div>
+
+
+  <div class="form-group">
+    <label>Email</label>
+    <%= email_input f, :email, class: "form-control" %>
+    <%= error_tag f, :email %> 
+  </div>
+
+   <div class="form-group">
+    <label>Phone</label>
+    <%= text_input f, :phone, class: "form-control" %>
+    <%= error_tag f, :phone %> 
+  </div>
+
+ <div class="form-group">
+    <label>Password</label>
+    <%= password_input f, :password, class: "form-control" %>
+    <%= error_tag f, :password %> 
+  </div>
+
+  <div class="form-group">
+    <label>Password Confirmation</label>
+    <%= password_input f, :password_confirmation, class: "form-control" %>
+    <%= error_tag f, :password_confirmation %> 
+  </div>
+
+  <div class="form-group">
+    <%= submit "Register", class: "btn btn-primary" %>
+    <%= link("Log In", to: Routes.user_path(@conn, :login), class: "btn btn-success pull-right") %>
+ 
+  </div>
+
+<% end %>
