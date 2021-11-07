@@ -1,23 +1,8 @@
 defmodule LaundryBasketWeb.UserController do
   use LaundryBasketWeb, :controller
-
   alias LaundryBasket.Repo
 
-  @doc """
-  if the current_user is in the connection return the connection downstream
-  else redirect to another page
-  halt() stops downstream transformation
-  """
-  defp authenticate(conn) do
-    if conn.assigns.current_user do
-      conn
-    else
-      conn
-      |> put_flash(:error, "You must be logged in to access that page")
-      |> redirect(to: Routes.page_path(conn, :index))
-      |> halt()
-    end
-  end
+
 
 
   def login(conn, _params) do
@@ -41,18 +26,6 @@ defmodule LaundryBasketWeb.UserController do
   end
 
 
-  @doc """
-  check whether the user authenticated
-  """
-  def index(conn, _params) do
-    case authenticate(conn) do
-      %Plug.Conn{halted: true} = conn ->
-        conn
-      conn ->
-        render conn, "new.html"
-    end
-  end
-
   def new(conn, _params) do
     changeset = LaundryBasket.Accounts.change_registration(%User{}, %{})
     render conn, "register.html", changeset: changeset
@@ -71,5 +44,10 @@ defmodule LaundryBasketWeb.UserController do
     end
   end
 
+  def delete(conn, _)do
+    conn
+    |> LaundryBasketWeb.Auth.logout()
+    |> redirect(to: Routes.page_path(conn, :index))
+  end
 
 end

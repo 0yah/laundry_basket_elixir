@@ -23,6 +23,23 @@ defmodule LaundryBasketWeb.Router do
     post "/register", UserController, :create
     get "/login", UserController, :login
     post "/login", UserController, :sign_in
+    get "/logout", UserController, :delete
+
+  end
+
+  scope "/items", LaundryBasketWeb do
+    pipe_through [:browser, :authenticate_user]
+
+    get "/", ItemController, :index
+
+    get "/new", ItemController, :new
+    post "/new", ItemController, :create
+
+    get "/edit/:id", ItemController, :edit
+    post "/edit/:id", ItemController, :update
+    
+    get "/delete/:id", ItemController, :delete
+
 
   end
 

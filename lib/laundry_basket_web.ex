@@ -67,6 +67,8 @@ defmodule LaundryBasketWeb do
       import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+      import LaundryBasketWeb.Auth, only: [authenticate_user: 2]
+      alias LaundryBasketWeb.Router.Helpers, as: Routes
     end
   end
 
