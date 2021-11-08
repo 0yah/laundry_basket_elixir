@@ -1,0 +1,17 @@
+<%= form_for @changeset, Routes.item_path(@conn, :create), [multipart: true], fn f -> %>
+ <div class="form-group">
+    <label>Name</label>
+    <%= text_input f, :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <%= number_input f, :price, class: "form-control" %>
+  </div>
+
+<div class="form-group">
+    <label>Photo</label>
+    <%= file_input f, :image, class: "form-control" %>
+  </div>
+
+    <%= submit "Add", class: "btn btn-primary" %>
+<% end %>

@@ -21,7 +21,7 @@ defmodule LaundryBasketWeb.Auth do
   end
 
   import Phoenix.Controller
-  alias RumblWeb.Router.Helpers, as: Routes
+  alias LaundryBasketWeb.Router.Helpers, as: Routes
   @doc """
   if the current_user is in the connection return the connection downstream
   else redirect to another page

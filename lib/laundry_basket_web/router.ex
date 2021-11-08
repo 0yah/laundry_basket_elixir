@@ -37,7 +37,7 @@ defmodule LaundryBasketWeb.Router do
 
     get "/edit/:id", ItemController, :edit
     post "/edit/:id", ItemController, :update
-    
+
     get "/delete/:id", ItemController, :delete
 
 
